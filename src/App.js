@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter } from "react-router-dom";
+import Navbody from "./body/navigatoin/Navbody";
+import Navlink from "./body/navigatoin/Navlink";
+import React, { createContext, useState } from "react";
+export const UserContext = createContext();
+export const CheckoutContext = createContext();
 
 function App() {
+  const [loggedinUser, setloggedinUser] = useState({});
+  const [checkout, setcheckout] = useState([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UserContext.Provider
+      className="App"
+      value={[loggedinUser, setloggedinUser]}
+    >
+      <CheckoutContext.Provider value={[checkout, setcheckout]}>
+        <div >
+          <BrowserRouter>
+            <Navbody></Navbody>
+            <Navlink></Navlink>
+          </BrowserRouter>
+        </div>
+      </CheckoutContext.Provider>
+    </UserContext.Provider>
   );
 }
 

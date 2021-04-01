@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&display=swap");
+.home-container {
+  min-height: 800px;
+  background-color:#B5EAF8;
+  font-family: "Poppins", sans-serif;
+   
+}
+.Search{
+  position: relative;
+  top: 20px;
+}
+ 
+.go-card {
+  box-shadow: 2px 2px 2px 3px gray;
+ 
+} 
+
+
+
+.shadowSlider{
+  box-shadow: 3px 3px 3px 4px gray;
+}
+
+
+@media(min-width:990px){
+  
+  .slider-img{
+    width:50%;
+  }
+}

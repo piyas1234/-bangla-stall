@@ -1,0 +1,21 @@
+
+.sideBar{
+    background-color:#203D37;
+
+
+}
+
+.sideBar >h3{
+     
+
+}
+
+@media (min-width:990px){
+    .sideBar{
+        background-color:#203D37;
+        min-height:800px;
+
+    }
+}
+
+

@@ -1,0 +1,39 @@
+.input{
+    min-width:300px;
+    display:block;
+    margin: auto;
+    border: none;
+    border-bottom: 1px solid gray;
+}
+
+.group{
+    max-width:300px;
+    display:block;
+    margin: auto;
+
+}
+
+.group>label {
+   margin-top: 20px;
+}
+.group .btn{
+    background-color:tomato;
+    color:white;
+    border: none;
+}
+.form{
+    border:1px solid gray;
+    border-radius: 10px;
+    max-width:450px;
+    margin: auto;
+    font-family: 'Poppins', sans-serif;
+}
+
+.social-log{
+    border:1px solid gray;
+    border-radius: 20px;
+    margin:auto;
+    text-align:center;
+    margin-top: 10px;
+    font-family: 'Poppins', sans-serif;
+}
