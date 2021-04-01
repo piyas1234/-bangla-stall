@@ -1,7 +1,9 @@
 
 
-
+ @media(min-width:995px){
+     
 .main{
     margin-left: 130px;
     margin-right: 130px;
 }
+ }

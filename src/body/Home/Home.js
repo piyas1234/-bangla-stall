@@ -31,30 +31,32 @@ const Home = () => {
   };
 
   return data.length < 1 ? (
-    <div className="d-flex w-50 m-auto mt-5">
-       <h3 className="text-warning">Loading....</h3>
-       <div class="spinner-border text-primary ml-auto" role="status">
-    </div>
+    <div className="d-flex w-50 m-auto home-spinner">
+      <div class="spinner-border text-primary m-auto" role="status"></div>
     </div>
   ) : redirect ? (
     <Redirect to="/checkout" />
   ) : (
     <div className="home-container">
       <div className="col-md-10 offset-md-1">
-        <div className="d-flex  Search">
-          <input
-            type="search"
-            name="search"
-            placeholder="#Search your item here"
-            className="form-control form-lg"
-            id=""
-          />
-          <input
-            className="btn btn-primary ml-2"
-            type="submit"
-            value="Search"
-          />
-        </div>
+        <Link to="/search">
+          <div>
+            <div className="d-flex  Search">
+              <input
+                type="search"
+                name="search"
+                placeholder="#Search your item here"
+                className="form-control form-lg"
+                id=""
+              />
+              <input
+                className="btn btn-primary ml-2"
+                type="submit"
+                value="Search"
+              />
+            </div>
+          </div>
+        </Link>
         <Carousel className="slider bg-primary shadowSlider m-3 mt-5">
           {data &&
             data.slice(0, 5).map((item) => {

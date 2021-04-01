@@ -3,6 +3,8 @@ import "./cheekout.css";
 import { Link } from "react-router-dom";
 import { CheckoutContext, UserContext } from "../../App";
 import Api from "../Axios/Api";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDollarSign } from "@fortawesome/free-solid-svg-icons";
 
 const Checkout = () => {
   const [msg, setmsg] = useState("");
@@ -27,16 +29,10 @@ const Checkout = () => {
         console.log(err);
       });
   };
-  return checkout.length < 1 ? (
-    <div className="d-flex w-50 m-auto">
-       <h3 className="text-warning">Loading....</h3>
-       <div class="spinner-border text-primary ml-auto" role="status">
-    </div>
-    </div>
-  ) : (
+  return   (
     <div className="main">
       <h1 className="mt-5">Checkout</h1>
-      <div className="card p-5">
+      <div className="card">
         {msg && (
           <div
             class="alert alert-warning alert-dismissible fade show"
@@ -53,7 +49,10 @@ const Checkout = () => {
             </button>
           </div>
         )}
-        <table class="table table-hover">
+        
+        <div class="table-responsive">
+      
+        <table class="table  table-hover">
           <thead>
             <tr>
               <th>Description</th>
@@ -81,14 +80,18 @@ const Checkout = () => {
                   </tr>
                 );
               })}
-            
-            <th>
-              <td><h4>Total Amount</h4></td>
-              <td> <h4 className="ml-auto">: ${totalPrice}</h4></td>
-            </th>
+
+             
           </tbody>
+          
         </table>
       </div>
+       <div className="card p-2 bg-info text-white">
+       <h4  >Total Amount: {totalPrice+" "}<FontAwesomeIcon icon={faDollarSign}></FontAwesomeIcon> </h4>
+          
+        </div>
+        </div>
+     
       <div className="d-flex m-5">
         <Link to="/" className=" btn btn-warning">
           Add More

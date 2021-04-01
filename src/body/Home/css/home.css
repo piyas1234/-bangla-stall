@@ -28,3 +28,8 @@
     width:50%;
   }
 }
+
+.home-spinner{
+ position: relative;
+ top:200px;
+}

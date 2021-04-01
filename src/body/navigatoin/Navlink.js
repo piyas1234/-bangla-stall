@@ -10,6 +10,7 @@ import Blog from "../Blog";
 import AdminNav from "../Admin/AdminNav";
 import Checkout from "../Checkout/Checkout";
 import Order from "../Order/Order";
+import SearchResult from "../Home/SearchResult";
 
 const Navlink = () => {
   return (
@@ -17,6 +18,9 @@ const Navlink = () => {
       <Switch>
         <Route exact path="/">
           <Home></Home>
+        </Route>
+        <Route exact path="/search">
+          <SearchResult></SearchResult>
         </Route>
         <Route exact path="/login">
           <Login></Login>

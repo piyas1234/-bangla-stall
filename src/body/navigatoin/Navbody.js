@@ -6,7 +6,8 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { UserContext } from "../../App";
 import NavProfile from "./NavProfile";
-import { faBullseye } from "@fortawesome/free-solid-svg-icons";
+import { faBullseye, faCartPlus, faHome } from "@fortawesome/free-solid-svg-icons";
+import { faFirstOrder, faFirstOrderAlt } from "@fortawesome/free-brands-svg-icons";
 
 const Navbody = () => {
   const [inputData, setinputData] = useContext(UserContext);
@@ -44,7 +45,16 @@ const Navbody = () => {
             <Nav.Link>
               <Link to="/">
                 <h5 className={classNameValue} style={navStyle}>
+                  <FontAwesomeIcon icon={faHome}></FontAwesomeIcon>
                   Home
+                </h5>
+              </Link>
+            </Nav.Link>
+            <Nav.Link>
+              <Link to="/checkout">
+                <h5 className={classNameValue} style={navStyle}>
+                <FontAwesomeIcon icon={faCartPlus}></FontAwesomeIcon>
+                  Cart
                 </h5>
               </Link>
             </Nav.Link>
@@ -57,6 +67,7 @@ const Navbody = () => {
             </Nav.Link>
             <Nav.Link>
               <Link to="/about">
+              
                 <h5 className={classNameValue} style={navStyle}>
                   About
                 </h5>

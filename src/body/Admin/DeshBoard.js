@@ -17,29 +17,28 @@ const DeshBoard = () => {
       .catch((error) => {
         console.log(error);
       });
-      setrefresh(false)
+    setrefresh(false);
   }, [refresh]);
 
-
-  const onDelete =(id)=>{
-     Api.post(`posts/delete`,{
-       id:id
-     })
-     .then((res)=>{
-       console.log(res)
-     })
-     .catch(error=>{
-       console.log(error)
-     })
-     setrefresh(true)
-  }
+  const onDelete = (id) => {
+    Api.post(`posts/delete`, {
+      id: id,
+    })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    setrefresh(true);
+  };
   return (
-    <div className="">
+    <div className="p-5">
+      <h2 className="m-3">DeshBoard</h2>
       <div class="table-responsive">
         <table class="table table-hover">
           <thead>
             <tr>
-              <th>id</th>
               <th>name</th>
               <th>Weight</th>
               <th>price</th>
@@ -52,7 +51,6 @@ const DeshBoard = () => {
                 const { _id, name, width, price } = item;
                 return (
                   <tr>
-                    <td>{_id}</td>
                     <td>{name}</td>
                     <td>{width}</td>
                     <td>{price}</td>
@@ -60,7 +58,11 @@ const DeshBoard = () => {
                       <button className="btn btn-warning" type="submit">
                         Edit
                       </button>
-                      <button onClick={()=>onDelete(_id)} className="btn btn-danger" type="submit">
+                      <button
+                        onClick={() => onDelete(_id)}
+                        className="btn btn-danger"
+                        type="submit"
+                      >
                         Delete
                       </button>
                     </td>

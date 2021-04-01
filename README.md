@@ -1,10 +1,13 @@
-project Name : go Riders 
+project Name : bangla-stall
 Author : Piyas Talukder
 
 ===========================
 
-- [Live Site](https://go-riders-67527.web.app/)
-- [Github Link](https://github.com/Porgramming-Hero-web-course/react-auth-piyas1234)
+- [Live Site](https://bangla-stall.web.app/)
+- [Github Link](https://github.com/Porgramming-Hero-web-course/full-stack-client-piyas1234/)
+- [nodeJS API](https://cherry-pie-28611.herokuapp.com/)
+- [photo upload API](https://api.imgbb.com/1/upload/)
+
  
 
 About project:
