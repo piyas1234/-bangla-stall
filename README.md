@@ -12,7 +12,11 @@ Author : Piyas Talukder
 
 About project:
  
-- this project is about Online shop
+- this project is about Online shop 
+- Admin Panel incuded
+- social login incuded with email and password login
+- sigle page application by react
+
 
 
 More information:
