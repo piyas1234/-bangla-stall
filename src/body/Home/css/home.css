@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&display=swap");
 .home-container {
   min-height: 800px;
-  background-color:#B5EAF8;
+  /* background-color:#B5EAF8; */
   font-family: "Poppins", sans-serif;
    
 }
@@ -11,14 +11,14 @@
 }
  
 .go-card {
-  box-shadow: 2px 2px 2px 3px gray;
+  box-shadow: 1px 1px 1px 2px rgb(176, 173, 177);
  
 } 
 
 
 
 .shadowSlider{
-  box-shadow: 3px 3px 3px 4px gray;
+  box-shadow: 2px 2px 2px 3px rgba(133, 121, 133, 0.431);
 }
 
 

@@ -1,3 +1,4 @@
+import { faSalesforce } from "@fortawesome/free-brands-svg-icons";
 import { faDollarSign } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext, useState } from "react";
@@ -5,6 +6,7 @@ import { useEffect } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { CheckoutContext } from "../../App";
 import Api from "../Axios/Api";
+import './css/home.css'
 
 const Search = () => {
   const [input, setInput] = useState("");
@@ -30,7 +32,7 @@ const Search = () => {
   return redirect ? (
     <Redirect to="/checkout" />
   ) : (
-    <div >
+    <div className="home-container" >
       <div className="d-flex  Search">
         <input
           type="search"
@@ -48,34 +50,40 @@ const Search = () => {
           data.map((item) => {
             const { name, photo, price, wight } = item;
             return (
-              <div className="gx-3 col-md-6 col-lg-4 mt-3 ">
-                <div className="card bg-white p-2 go-card m-3">
-                  <img
-                    className="card-img  m-auto"
-                    src={photo}
-                    alt=""
-                    srcset=""
-                  />
+              <div className="gx-3 col-sm-6 col-md-6 col-lg-4 col-xl-3 mt-3  ">
+              <div className="card bg-white p-2 go-card m-3 ">
+                <FontAwesomeIcon className="text-success" size="3x" icon={faSalesforce}></FontAwesomeIcon>
+                20% off
+                <img
+                  className="card-img  m-auto"
+                  src={photo}
+                  alt=""
+                  srcset=""
+                />
 
-                  <div className="m-3">
-                    <h5 className="text-dark">{name + "-" + wight}</h5>
-                    <div className="d-flex">
-                      <h4 className="text-success">
-                        Price:
-                        <FontAwesomeIcon icon={faDollarSign}></FontAwesomeIcon>
-                        {price}
-                      </h4>
-                      <Link
-                        onClick={() => onClickHandler(item)}
-                        className="btn bg-success text-white ml-auto"
-                        type="submit"
-                      >
-                        Buy Now
-                      </Link>
-                    </div>
+                <div className="m-3">
+                  <h5 style={{fontFamily:"fantasy",fontWeight:"lighter"}} className="text-dark mb-3">{name + "-" + wight}</h5>
+                  <hr/>
+                  <div className="d-flex">
+                    <h4 style={{fontFamily:"cursive",fontWeight:"bold",color:"#007BFF" ,textShadow:"1px 2px 2px gray"}}   >
+                      Price:
+                      <FontAwesomeIcon
+                        icon={faDollarSign}
+                      ></FontAwesomeIcon>
+                      {price}
+                    </h4>
+                    <Link
+                     style={{backgroundColor:"tomato"}}
+                      onClick={() => onClickHandler(item)}
+                      className="btn   text-white ml-auto"
+                      type="submit"
+                    >
+                      Buy Now
+                    </Link>
                   </div>
                 </div>
               </div>
+            </div>
             );
           })}
       </div>

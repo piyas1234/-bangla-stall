@@ -4,24 +4,27 @@ import Nav from "react-bootstrap/Nav";
 import "./Nav.css";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { UserContext } from "../../App";
+import { darkModeContext, UserContext } from "../../App";
 import NavProfile from "./NavProfile";
-import { faBullseye, faCartPlus, faHome } from "@fortawesome/free-solid-svg-icons";
-import { faFirstOrder, faFirstOrderAlt } from "@fortawesome/free-brands-svg-icons";
+import { faBullseye } from "@fortawesome/free-solid-svg-icons";
+import DarkMode from "./DarkMode";
 
 const Navbody = () => {
   const [inputData, setinputData] = useContext(UserContext);
+  const [mode, setmode] = useContext(darkModeContext);
   const { email, emailVerified, displayName } = inputData;
 
   const navBarStyle = {
     fontFamily: "'Poppins', sans-serif",
   };
-  const navStyle = { boxShadow: "3px 3px 3px 3px  gray" };
+  const navStyle = { boxShadow: "1px 2px 3px 3px  gray" };
   const navStylebtn = {
-    boxShadow: "3px 3px 3px 3px  gray",
+    boxShadow: "1px 2px 2px 2px  gray",
     backgroundColor: "tomato",
   };
-  const classNameValue = "bg-primary text-white p-2";
+  const classNameValue = mode
+    ? "bg-dark text-white p-2"
+    : "bg-primary text-white p-2";
 
   return (
     <div className="nav-container">
@@ -43,9 +46,11 @@ const Navbody = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
             <Nav.Link>
+              <DarkMode></DarkMode>
+            </Nav.Link>
+            <Nav.Link>
               <Link to="/">
                 <h5 className={classNameValue} style={navStyle}>
-                  <FontAwesomeIcon icon={faHome}></FontAwesomeIcon>
                   Home
                 </h5>
               </Link>
@@ -53,7 +58,6 @@ const Navbody = () => {
             <Nav.Link>
               <Link to="/checkout">
                 <h5 className={classNameValue} style={navStyle}>
-                <FontAwesomeIcon icon={faCartPlus}></FontAwesomeIcon>
                   Cart
                 </h5>
               </Link>
@@ -67,7 +71,6 @@ const Navbody = () => {
             </Nav.Link>
             <Nav.Link>
               <Link to="/about">
-              
                 <h5 className={classNameValue} style={navStyle}>
                   About
                 </h5>

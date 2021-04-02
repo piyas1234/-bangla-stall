@@ -31,7 +31,8 @@ const Checkout = () => {
   };
   return   (
     <div className="main">
-      <h1 className="mt-5">Checkout</h1>
+      <h1 className="mt-5 text-primary">Checkout</h1>
+      <hr/>
       <div className="card">
         {msg && (
           <div

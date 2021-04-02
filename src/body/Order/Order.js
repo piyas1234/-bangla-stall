@@ -31,9 +31,9 @@ const Order = () => {
       <div class="spinner-border text-primary ml-auto" role="status"></div>
     </div>
   ) : (
-    <div style={{ fontFamily: "'Poppins', sans-serif" }}>
+    <div style={{ fontFamily: "'Poppins', sans-serif" ,minHeight:"800px"}}>
       <div className="col-md-10 offset-md-1 mt-5">
-        <h2 className="">Order List</h2>
+        <h2 className="text-primary">Order List</h2>
         {data &&
           data.map((item) => {
             const { checkout, email, date } = item;

@@ -1,29 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import Switch from "@material-ui/core/Switch";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
+import { darkModeContext } from "../../App";
 
 export default function DarkMode() {
-  const [lsData, setlsData] = React.useState(null)
-  React.useEffect(() => {
-    const Lsdata = localStorage.getItem('DarkMode')
-    setlsData(Lsdata)
-  },[])
-   
-  const [checked, setChecked] = React.useState(lsData || false);
-
+  const [mode, setmode] = useContext(darkModeContext);
+  const btnClass = mode
+    ? "btn-sm btn-dark text-white shadow-lg pr-4 text-bold"
+    : "btn-sm btn-white text-white shadow-lg pr-4 text-bold";
   const toggleChecked = () => {
-     
-    localStorage.setItem("DarkMode",!checked);
-    setChecked(!checked);
-   
+    localStorage.setItem("DarkMode", !mode);
+    setmode(!mode);
   };
-  console.log(localStorage.getItem('DarkMode'))
+  console.log(localStorage.getItem("DarkMode"));
   return (
-    <div className="card p-2 m-3">
-      <FormControlLabel
-        control={<Switch checked={checked} onClick={toggleChecked} />}
-        label={checked ? "DarkMode" : "DayMode"}
-      />
-    </div>
+    <FormControlLabel
+      className={btnClass}
+      control={<Switch checked={mode} onClick={toggleChecked} />}
+      label={mode ? "Night" : "Day"}
+    />
   );
 }

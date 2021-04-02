@@ -10,7 +10,7 @@ const AdminNav = () => {
         <div className="col-md-2 sideBar">
           <NavBody></NavBody>
         </div>
-        <div style={{backgroundColor:"#F4FCFB"}} className="col-md-10">
+        <div  className="col-md-10">
           <NavLink></NavLink>
         </div>
       </div>

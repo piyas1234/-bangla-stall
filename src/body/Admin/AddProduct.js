@@ -7,11 +7,13 @@ import { UserContext } from "../../App";
 
 const AddProduct = () => {
   const [photoUrl, setphotoUrl] = useState(null);
-  const [msg, setmsg] = useState(null)
+  const [msg, setmsg] = useState(null);
+  const [loading, setloading] = useState(false);
   const [loggedinUser, setloggedinUser] = useContext(UserContext);
   const { register, errors, handleSubmit } = useForm();
 
   const onChangeHandler = (event) => {
+    setloading(true);
     const image = event.target.files[0];
     console.log(image);
     const imageData = new FormData();
@@ -22,6 +24,7 @@ const AddProduct = () => {
       .post("https://api.imgbb.com/1/upload", imageData)
       .then((response) => {
         setphotoUrl(response.data.data.display_url);
+          setloading(false);
       })
       .catch((error) => {
         console.log(error);
@@ -31,34 +34,44 @@ const AddProduct = () => {
 
   const onSubmit = (data) => {
     const { email } = loggedinUser;
-    Api.post("/admin/posts", {
-      email: email,
-      name: data.name,
-      wight: data.wight,
-      price: data.price,
-      photo: `${photoUrl}`,
-    })
-      .then((response) => {
-        setmsg(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    !loading
+      ? Api.post("/admin/posts", {
+          email: email,
+          name: data.name,
+          wight: data.wight,
+          price: data.price,
+          photo: `${photoUrl}`,
+        })
+          .then((response) => {
+            setmsg(response.data);
+          })
+          .catch((error) => {
+            console.log(error);
+          })
+      : setmsg("please wait for upload image!!!");
   };
   return (
-    <div>
+    <div className="m-3">
       <h2 className="m-4 p-3 bg-info text-white">Add product</h2>
-      {msg && <div class="alert alert-warning alert-dismissible fade show" role="alert">
-  <strong>{msg}</strong> 
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>}
+      {msg && (
+        <div
+          class="alert alert-warning alert-dismissible fade show"
+          role="alert"
+        >
+          <strong>{msg}</strong>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="alert"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      )}
       <div className="m-atuo card bg-white mt-5 p-5 ">
-        
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="row">
-
             <div className="gx-3 col-md-6">
               <div className="form-group">
                 <h6 htmlFor="Name*">Product Name</h6>
@@ -93,6 +106,19 @@ const AddProduct = () => {
               </div>
 
               <div className="form-group">
+                {loading && (
+                  <div>
+                    <div>
+                      <h5 className="text-primary">uploading...</h5>
+                    </div>
+                    <div
+                      class="spinner-border text-primary ml-auto"
+                      role="status"
+                    >
+                      <span class="sr-only">Loading...</span>
+                    </div>
+                  </div>
+                )}
                 <h6 htmlFor="">File*</h6>
                 <input
                   name="photo"

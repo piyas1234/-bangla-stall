@@ -64,8 +64,8 @@ const Signup = () => {
   };
   console.log(msg);
   return (
-    <div>
-      <div className="col-md-6 offset-md-3">
+    <div className="login-main">
+      <div className="col-md-6 offset-md-3 ">
         <div className="form mt-5">
           {errMsg && (
             <div

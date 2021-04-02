@@ -10,9 +10,7 @@ const DeshBoard = () => {
     const { email } = loggedinUser;
     Api.post("/admin/postsbyemail", { email: email })
       .then((res) => {
-        setTimeout(() => {
           setdata(res.data);
-        }, 2000);
       })
       .catch((error) => {
         console.log(error);
@@ -34,26 +32,28 @@ const DeshBoard = () => {
   };
   return (
     <div className="p-5">
-      <h2 className="m-3">DeshBoard</h2>
-      <div class="table-responsive">
-        <table class="table table-hover">
+      <h2 className="m-3 text-primary">DeshBoard</h2>
+      <div class="table-responsive text-primary">
+        <table class="table table-hover text-success">
           <thead>
             <tr>
               <th>name</th>
               <th>Weight</th>
               <th>price</th>
+              <th>Image</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
             {data &&
               data.map((item) => {
-                const { _id, name, width, price } = item;
+                const { _id, name, wight, price , photo } = item;
                 return (
                   <tr>
                     <td>{name}</td>
-                    <td>{width}</td>
+                    <td>{wight}</td>
                     <td>{price}</td>
+                    <td><img width="60px" src={photo} alt="" srcset=""/></td>
                     <td>
                       <button className="btn btn-warning" type="submit">
                         Edit

@@ -36,7 +36,7 @@ const Login = () => {
     const { email, password } = inputData;
     return (
         <div>
-            <div className="col-md-6 offset-md-3">
+            <div className="col-md-6 offset-md-3 login-main">
                 <div className="form mt-5">
                     {errMsg && <div class="alert alert-warning alert-dismissible fade show" role="alert">
                         <strong>{errMsg}</strong>

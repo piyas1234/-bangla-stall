@@ -4,7 +4,7 @@ import { UserContext } from "../../App";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShieldAlt, faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import DarkMode from './DarkMode'
+import DarkMode from "./DarkMode";
 
 const NavProfile = (props) => {
   const [lgShow, setLgShow] = useState(false);
@@ -55,7 +55,9 @@ const NavProfile = (props) => {
             ) : (
               <FontAwesomeIcon size="2x" icon={faUserPlus} />
             )}
-            <DarkMode className="m-4"></DarkMode >
+            <div className="m-3">
+              <DarkMode></DarkMode>
+            </div>
             <div className="card p-4 text-dark mt-4 rounded">
               <h3>Name : {displayName || "Guest"}</h3>
               <h5>Email: {email || "Guest@gmail.com"}</h5>
