@@ -67,14 +67,14 @@ const Home = () => {
               return (
                 <Carousel.Item interval={1000}>
                   <div className="row">
-                    <div className="col-md-6 gx-3 p-5">
+                    <div className="col-md-6 col-sm-6 gx-3 p-5">
                       <img
                         className="d-block card-img slider-img m-auto"
                         src={photo}
                         alt="First slide"
                       />
                     </div>
-                    <div className="col-md-6 gx-3">
+                    <div className="col-md-6 col-sm-6 gx-3">
                       <Carousel.Caption
                         style={{ backgroundColor: "rgba(0, 0, 0, 0.089)" }}
                         className="ml-auto rounded"

@@ -32,4 +32,6 @@
 .home-spinner{
  position: relative;
  min-height: 800px;
+ position:relative;
+ top:-200px;
 }

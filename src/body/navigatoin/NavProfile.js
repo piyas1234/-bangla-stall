@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import Modal from "react-bootstrap/Modal";
-import { UserContext } from "../../App";
+import { darkModeContext, UserContext } from "../../App";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShieldAlt, faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
@@ -10,6 +10,8 @@ const NavProfile = (props) => {
   const [lgShow, setLgShow] = useState(false);
   const { displayName, email, emailVerified, photoURL } = props.value || null;
   const [inputData, setinputData] = useContext(UserContext);
+  const [mode, setmode] = useContext(darkModeContext);
+  const bgStyle = mode ? "bg-dark" : "bg-white";
   const onClickHandler = () => {
     setinputData({});
     setLgShow(false);
@@ -31,17 +33,16 @@ const NavProfile = (props) => {
             src={photoURL}
           ></img>
         ) : (
-          <FontAwesomeIcon size="2x" icon={faUserPlus} />
+          <FontAwesomeIcon  className={`${mode?"text-white iconColor":"iconColor"}`} size="2x" icon={faUserPlus} />
         )}
       </div>
       <Modal
-        className="bg-dark"
         size="md"
         show={lgShow}
         onHide={() => setLgShow(false)}
         aria-labelledby="example-modal-sizes-title-md"
       >
-        <Modal.Header closeButton>
+        <Modal.Header className={bgStyle} closeButton>
           <Modal.Title id="example-modal-sizes-title-lg">
             {photoURL ? (
               <img
@@ -53,7 +54,7 @@ const NavProfile = (props) => {
                 srcset=""
               />
             ) : (
-              <FontAwesomeIcon size="2x" icon={faUserPlus} />
+              <FontAwesomeIcon className={`${mode?"text-white":""}`} size="2x" icon={faUserPlus} />
             )}
             <div className="m-3">
               <DarkMode></DarkMode>
@@ -97,7 +98,7 @@ const NavProfile = (props) => {
             </div>
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body></Modal.Body>
+        <Modal.Body className={bgStyle}></Modal.Body>
       </Modal>
     </>
   );
