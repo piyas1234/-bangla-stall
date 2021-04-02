@@ -4,7 +4,8 @@ import Api from "../Axios/Api";
 
 const DeshBoard = () => {
   const [data, setdata] = useState([]);
-  const [refresh, setrefresh] = useState(true);
+  const [refresh, setrefresh] = useState(false);
+  const [msg, setmsg] = useState(null);
   const [loggedinUser, setloggedinUser] = useContext(UserContext);
 
   useEffect(() => {
@@ -20,22 +21,29 @@ const DeshBoard = () => {
   }, [refresh]);
 
   const onDelete = (id) => {
-    Api.post(`posts/delete`, {
-      id: id,
-    })
+    Api.delete(`/posts/delete/${id}`)
       .then((res) => {
-        console.log(res);
+        res.data.count > 0 && setrefresh(true);
+        res.data.count > 0 && setmsg("data deleted!!");
       })
       .catch((error) => {
         console.log(error);
       });
-    setrefresh(true);
   };
 
   return (
     <div className="p-5">
       <h2 className="m-3 text-primary">DeshBoard</h2>
       <div class="table-responsive text-primary">
+        {msg && (
+          <div class="alert alert-warning alert-dismissible fade show">
+            <strong>{msg}</strong>
+            <button type="button" class="close" data-dismiss="alert">
+              &times;
+            </button>
+          </div>
+        )}
+
         <table class="table table-hover text-success">
           <thead>
             <tr>
