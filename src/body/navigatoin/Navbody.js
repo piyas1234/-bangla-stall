@@ -8,6 +8,7 @@ import { darkModeContext, UserContext } from "../../App";
 import NavProfile from "./NavProfile";
 import { faBullseye } from "@fortawesome/free-solid-svg-icons";
 import DarkMode from "./DarkMode";
+import { faShopware } from "@fortawesome/free-brands-svg-icons";
 
 const Navbody = () => {
   const [inputData, setinputData] = useContext(UserContext);
@@ -23,20 +24,20 @@ const Navbody = () => {
     backgroundColor: "tomato",
   };
   const classNameValue = mode
-    ? "bg-dark text-white p-2"
-    : "bg-primary text-white p-2";
+    ? "bg-dark text-white p-2 rounded"
+    : "bg-primary text-white p-2 rounded";
 
   return (
     <div className="nav-container">
       <Navbar className="p-3 main-nav" style={navBarStyle} bg="" expand="lg">
         <Navbar.Brand>
           <h3>
-            <Link className={classNameValue} style={navStyle} to="/">
+            <Link className="text-white p-2 rounded" style={navStylebtn} to="/">
               {" "}
               <FontAwesomeIcon
                 className="text-white"
                 size="1x"
-                icon={faBullseye}
+                icon={faShopware}
               />{" "}
               Bangla Stall
             </Link>
@@ -66,13 +67,6 @@ const Navbody = () => {
               <Link to="/order">
                 <h5 className={classNameValue} style={navStyle}>
                   order
-                </h5>
-              </Link>
-            </Nav.Link>
-            <Nav.Link>
-              <Link to="/about">
-                <h5 className={classNameValue} style={navStyle}>
-                  About
                 </h5>
               </Link>
             </Nav.Link>

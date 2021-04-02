@@ -24,13 +24,12 @@ const AddProduct = () => {
       .post("https://api.imgbb.com/1/upload", imageData)
       .then((response) => {
         setphotoUrl(response.data.data.display_url);
-          setloading(false);
+        setloading(false);
       })
       .catch((error) => {
         console.log(error);
       });
   };
-  console.log(photoUrl);
 
   const onSubmit = (data) => {
     const { email } = loggedinUser;
@@ -50,6 +49,7 @@ const AddProduct = () => {
           })
       : setmsg("please wait for upload image!!!");
   };
+
   return (
     <div className="m-3">
       <h2 className="m-4 p-3 bg-info text-white">Add product</h2>

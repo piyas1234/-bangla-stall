@@ -31,5 +31,5 @@
 
 .home-spinner{
  position: relative;
- top:200px;
+ min-height: 800px;
 }

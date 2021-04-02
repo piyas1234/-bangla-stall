@@ -13,11 +13,13 @@ const Home = () => {
   const [redirect, setredirect] = useState(false);
   const [checkout, setcheckout] = useContext(CheckoutContext);
   const [mode, setmode] = useContext(darkModeContext);
-  let bgColor = !mode ? {backgroundColor:"#B5EAF8"} : {backgroundColor:"black"}
+  let bgColor = !mode
+    ? { backgroundColor: "#B5EAF8" }
+    : { backgroundColor: "black" };
   useEffect(() => {
     Api.get("/admin/posts")
       .then((res) => {
-          setdata(res.data);
+        setdata(res.data);
       })
       .catch((error) => {
         console.log(error);
@@ -32,7 +34,7 @@ const Home = () => {
   };
 
   return data.length < 1 ? (
-    <div className="d-flex w-50 m-auto home-spinner">
+    <div style={bgColor} className="d-flex  m-auto home-spinner">
       <div class="spinner-border text-primary m-auto" role="status"></div>
     </div>
   ) : redirect ? (
@@ -80,7 +82,7 @@ const Home = () => {
                         <h3>{name + "" + wight}</h3>
                         <h5>{price + "$"}</h5>
                         <Link
-                          style={{backgroundColor:"tomato"}}
+                          style={{ backgroundColor: "tomato" }}
                           onClick={() => onClickHandler(item)}
                           className="btn text-white ml-auto"
                           type="submit"
@@ -102,7 +104,11 @@ const Home = () => {
               return (
                 <div className="gx-3 col-sm-6 col-md-6 col-lg-4 col-xl-3 mt-3  ">
                   <div className="card bg-white p-2 go-card m-3 ">
-                    <FontAwesomeIcon className="text-success" size="3x" icon={faSalesforce}></FontAwesomeIcon>
+                    <FontAwesomeIcon
+                      className="text-success"
+                      size="3x"
+                      icon={faSalesforce}
+                    ></FontAwesomeIcon>
                     20% off
                     <img
                       className="card-img  m-auto"
@@ -110,20 +116,31 @@ const Home = () => {
                       alt=""
                       srcset=""
                     />
-
                     <div className="m-3">
-                      <h5 style={{fontFamily:"fantasy",fontWeight:"lighter"}} className="text-dark mb-3">{name + "-" + wight}</h5>
-                      <hr/>
+                      <h5
+                        style={{ fontFamily: "fantasy", fontWeight: "lighter" }}
+                        className="text-dark mb-3"
+                      >
+                        {name + "-" + wight}
+                      </h5>
+                      <hr />
                       <div className="d-flex">
-                        <h4 style={{fontFamily:"cursive",fontWeight:"bold",color:"#007BFF" ,textShadow:"1px 2px 2px gray"}}   >
+                        <h4
+                          style={{
+                            fontFamily: "cursive",
+                            fontWeight: "bold",
+                            color: "#007BFF",
+                            textShadow: "1px 2px 2px gray",
+                          }}
+                        >
                           Price:
+                          {price}
                           <FontAwesomeIcon
                             icon={faDollarSign}
                           ></FontAwesomeIcon>
-                          {price}
                         </h4>
                         <Link
-                         style={{backgroundColor:"tomato"}}
+                          style={{ backgroundColor: "tomato" }}
                           onClick={() => onClickHandler(item)}
                           className="btn   text-white ml-auto"
                           type="submit"

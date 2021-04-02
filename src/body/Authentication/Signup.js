@@ -17,6 +17,7 @@ import {
 } from "./firebase/firebase.config";
 import { FromValidator } from "./FormValidation";
 !firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app();
+
 const Signup = () => {
   const [inputData, setinputData] = useState({});
   const [errMsg, seterrMsg] = useState("");
@@ -62,7 +63,7 @@ const Signup = () => {
       seterrMsg("please fill all the Fields");
     }
   };
-  console.log(msg);
+ 
   return (
     <div className="login-main">
       <div className="col-md-6 offset-md-3 ">
@@ -83,6 +84,7 @@ const Signup = () => {
               </button>
             </div>
           )}
+
           <h2 class="mt-5 text-center text-gray"> Create a account</h2>
           <form action="" method="post">
             <div className="mt-2 group">
@@ -99,6 +101,7 @@ const Signup = () => {
               ) : (
                 <p className="text-danger"> {nameMsg}</p>
               )}
+              
             </div>
             <div className="mt-2 group">
               <label htmlFor="">UserName or Eamil</label>

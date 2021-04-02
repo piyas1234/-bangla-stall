@@ -6,11 +6,12 @@ const DeshBoard = () => {
   const [data, setdata] = useState([]);
   const [refresh, setrefresh] = useState(true);
   const [loggedinUser, setloggedinUser] = useContext(UserContext);
+
   useEffect(() => {
     const { email } = loggedinUser;
     Api.post("/admin/postsbyemail", { email: email })
       .then((res) => {
-          setdata(res.data);
+        setdata(res.data);
       })
       .catch((error) => {
         console.log(error);
@@ -30,6 +31,7 @@ const DeshBoard = () => {
       });
     setrefresh(true);
   };
+
   return (
     <div className="p-5">
       <h2 className="m-3 text-primary">DeshBoard</h2>
@@ -47,13 +49,15 @@ const DeshBoard = () => {
           <tbody>
             {data &&
               data.map((item) => {
-                const { _id, name, wight, price , photo } = item;
+                const { _id, name, wight, price, photo } = item;
                 return (
                   <tr>
                     <td>{name}</td>
                     <td>{wight}</td>
                     <td>{price}</td>
-                    <td><img width="60px" src={photo} alt="" srcset=""/></td>
+                    <td>
+                      <img width="60px" src={photo} alt="" srcset="" />
+                    </td>
                     <td>
                       <button className="btn btn-warning" type="submit">
                         Edit

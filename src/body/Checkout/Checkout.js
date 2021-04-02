@@ -29,10 +29,10 @@ const Checkout = () => {
         console.log(err);
       });
   };
-  return   (
+  return (
     <div className="main">
       <h1 className="mt-5 text-primary">Checkout</h1>
-      <hr/>
+      <hr />
       <div className="card">
         {msg && (
           <div
@@ -50,49 +50,53 @@ const Checkout = () => {
             </button>
           </div>
         )}
-        
-        <div class="table-responsive">
-      
-        <table class="table  table-hover">
-          <thead>
-            <tr>
-              <th>Description</th>
-              <th>Quantity</th>
-              <th>Price</th>
-            </tr>
-          </thead>
-          <tbody>
-            {checkout &&
-              checkout.map((item) => {
-                const { name, wight, price } = item;
-                let value = 1;
-                return (
-                  <tr>
-                    <td>
-                      <h6>{name + " " + wight}</h6>
-                    </td>
-                    <td>
-                      {" "}
-                      <h6>{(item.quentity = value)}</h6>
-                    </td>
-                    <td>
-                      <h6>{price}</h6>
-                    </td>
-                  </tr>
-                );
-              })}
 
-             
-          </tbody>
-          
-        </table>
+        <div class="table-responsive">
+          <table class="table  table-hover">
+            <thead>
+              <tr>
+                <th>Description</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Img</th>
+              </tr>
+            </thead>
+            <tbody>
+              {checkout &&
+                checkout.map((item) => {
+                  const { name, wight, price, photo } = item;
+                  let value = 1;
+                  return (
+                    <tr>
+                      <td>
+                        <h6>{name + " " + wight}</h6>
+                      </td>
+                      <td>
+                        {" "}
+                        <h6>{(item.quentity = value)}</h6>
+                      </td>
+                      <td>
+                        <h6>{price}</h6>
+                      </td>
+                      <td>
+                        <h6>
+                          <img width="50px" src={photo} alt="" srcset="" />
+                        </h6>
+                      </td>
+                    </tr>
+                  );
+                })}
+            </tbody>
+          </table>
+        </div>
+        <div className="card p-2 bg-info text-white">
+          <h4>
+            Total Amount: {totalPrice + " "}
+            <FontAwesomeIcon icon={faDollarSign}></FontAwesomeIcon>{" "}
+          </h4>
+        </div>
       </div>
-       <div className="card p-2 bg-info text-white">
-       <h4  >Total Amount: {totalPrice+" "}<FontAwesomeIcon icon={faDollarSign}></FontAwesomeIcon> </h4>
-          
-        </div>
-        </div>
-     
+
       <div className="d-flex m-5">
         <Link to="/" className=" btn btn-warning">
           Add More
