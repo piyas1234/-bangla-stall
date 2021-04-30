@@ -1,3 +1,11 @@
+<h2>Home</h2>
+<img src="Screenshot_12.png"/>
+<h2>Deshboard</h2>
+<img src="Screenshot_13.png"/>
+
+
+
+
 project Name : bangla-stall
 Author : Piyas Talukder
 
